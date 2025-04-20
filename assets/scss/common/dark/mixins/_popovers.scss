@@ -1,0 +1,51 @@
+// popover color variations //
+
+@mixin popover-variant($color) {
+	border-color: $color;
+
+	.popover-header {
+		background: map-get($theme-colors , $color );
+		color: $white;
+		border-bottom: 0;
+	}
+
+	&.bs-popover-top {
+		.arrow {
+
+			&:before,
+			&:after {
+				border-top-color: map-get($theme-colors , $color );
+			}
+		}
+	}
+
+	&.bs-popover-right {
+		.arrow {
+
+			&:before,
+			&:after {
+				border-right-color: map-get($theme-colors , $color );
+			}
+		}
+	}
+
+	&.bs-popover-bottom {
+		.arrow {
+
+			&:before,
+			&:after {
+				border-bottom-color: map-get($theme-colors , $color );
+			}
+		}
+	}
+
+	&.bs-popover-left {
+		.arrow {
+
+			&:before,
+			&:after {
+				border-left-color: map-get($theme-colors , $color );
+			}
+		}
+	}
+}
