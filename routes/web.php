@@ -56,10 +56,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware('role:owner')->get('/rekap', [PenjualanController::class, 'rekap']);
 
-    Route::get('/laporan-penjualan', [LaporanPenjualanController::class, 'index'])->name('laporan.penjualan');
-    Route::get('/rekap-absensi', [RekapAbsensiController::class, 'index'])->name('rekap.absensi');
+    Route::middleware('role:owner')->get('/laporan-penjualan', [LaporanPenjualanController::class, 'index'])->name('laporan.penjualan');
+    Route::middleware('role:owner')->get('/rekap-absensi', [RekapAbsensiController::class, 'index'])->name('rekap.absensi');
 
-    Route::resource('users', \App\Http\Controllers\UserController::class);
+    Route::middleware('role:owner')->resource('users', \App\Http\Controllers\UserController::class);
 
 
 });
