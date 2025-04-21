@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="{{ asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/horizontal-layout/style.css') }}">
-  <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
+  <link rel="shortcut icon" href="{{ asset('assets/icon.png') }}" />
 </head>
 
 <body>
@@ -20,7 +20,7 @@
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                 <div class="brand-logo">
-                  <img src="{{ asset('assets/logo.png') }}" alt="logo">
+                  <img src="{{ asset('assets/logof.png') }}" alt="logo">
                 </div>
                 <h4>Hallo!, Guest </h4>
                 <h6 class="fw-light">Silahkan Masukan Email dan Password Anda</h6>

@@ -15,7 +15,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="{{url('assets/css/horizontal-layout/style.css')}}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="{{url('assets/images/favicon.png')}}" />
+  <link rel="shortcut icon" href="{{url('assets/icon.png')}}" />
   <style>
     input[type="date"],
     input[type="number"],
