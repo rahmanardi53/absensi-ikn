@@ -1,0 +1,103 @@
+/* Select2 */
+
+.select2-container--default {
+  .select2-results__option--highlighted[aria-selected] {
+    background: map-get($theme-colors, 'secondary');
+  }
+
+  .select2-selection--single,
+  .select2-dropdown,
+  .select2-selection--multiple {
+    border-color: $border-color;
+  }
+
+  .select2-selection--single {
+    height: auto;
+    @extend .form-control;
+
+    .select2-search__field {
+      @extend .form-control;
+    }
+
+    .select2-selection__rendered {
+      line-height: 14px;
+      color: $input-color;
+    }
+  }
+
+  .select2-dropdown {
+    background: $dropdown-bg;
+    font-size: .8125rem;
+  }
+
+  &.select2-container--focus {
+    .select2-selection--multiple {
+      border-color: $border-color;
+    }
+  }
+
+  .select2-selection--multiple {
+    background: $input-bg;
+
+    .select2-selection__choice {
+      color: map-get($colors, 'white');
+      border: 0;
+      border-radius: 3px;
+      padding: 6px;
+      font-size: .625rem;
+      font-family: inherit;
+      line-height: 1;
+
+      .select2-selection__choice__remove {
+        color: map-get($colors, 'white');
+      }
+
+      &:nth-child(5n+1) {
+        background: map-get($theme-colors, 'secondary');
+      }
+
+      &:nth-child(5n+2) {
+        background: map-get($theme-colors, 'success');
+      }
+
+      &:nth-child(5n+3) {
+        background: map-get($theme-colors, 'info');
+      }
+
+      &:nth-child(5n+4) {
+        background: map-get($theme-colors, 'danger');
+      }
+
+      &:nth-child(5n+5) {
+        background: map-get($theme-colors, 'warning');
+      }
+    }
+
+    .select2-selection__rendered {
+      background: $input-bg;
+    }
+  }
+}
+
+
+.select2-selection__arrow {
+  padding: 20px;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+  background-color: #ddd;
+  color: black !important;
+}
+
+.select2-container--default .select2-selection--multiple {
+  // background: white;
+  color: white;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 2px;
+}
