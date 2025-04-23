@@ -16,7 +16,7 @@ class PenjualanController extends Controller
     public function store(Request $request) {
         foreach ($request->items as $item) {
             $barang = Barang::where('id',$request->nama_barang)->first();
-            $harga = $barang->harga ?? 0;
+            $harga = $barang->harga + $barang->komisi ?? 0;
             $subtotal = $harga * $item['jumlah'];
             $cash = $barang->komisi * $item['jumlah'];
             
@@ -46,7 +46,7 @@ class PenjualanController extends Controller
 
         $penjualan->update([
             'jumlah' => $request->jumlah,
-            'harga_satuan' => $barang->harga,
+            'harga_satuan' => $barang->harga + $barang->komisi,
             'subtotal' => $subtotal,
             'cash' => $cash,
             'invoice' => $subtotal,
