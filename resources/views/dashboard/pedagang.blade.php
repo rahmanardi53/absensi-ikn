@@ -199,8 +199,8 @@
                             <td>{{ $penjualan->jumlah }}</td>
                             <td>Rp {{ number_format($penjualan->harga_satuan, 0, ',', '.') }}</td>
                             <td>Rp {{ number_format($penjualan->cash, 0, ',', '.') }}</td>
-                            <td>Rp {{ number_format($penjualan->subtotal, 0, ',', '.') }}</td>
-                            <td><strong>Rp {{ number_format($penjualan->cash+$penjualan->subtotal, 0, ',', '.') }}</strong></td>
+                            <td>Rp {{ number_format($penjualan->invoice, 0, ',', '.') }}</td>
+                            <td><strong>Rp {{ number_format($penjualan->subtotal, 0, ',', '.') }}</strong></td>
 
 
                             <td>
