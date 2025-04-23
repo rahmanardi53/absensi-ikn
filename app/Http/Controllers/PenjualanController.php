@@ -17,8 +17,9 @@ class PenjualanController extends Controller
         foreach ($request->items as $item) {
             $barang = Barang::where('id',$request->nama_barang)->first();
             $harga = $barang->harga + $barang->komisi ?? 0;
-            $subtotal = $harga * $item['jumlah'];
+            $invoice = $barang->harga * $item['jumlah'];
             $cash = $barang->komisi * $item['jumlah'];
+            $subtotal = $harga * $item['jumlah'];
             
         
             $penjualan = Penjualan::create([
@@ -30,7 +31,7 @@ class PenjualanController extends Controller
                 'harga_satuan' => $harga,
                 'subtotal' => $subtotal,
                 'cash' => $cash ,
-                'invoice' =>  $subtotal ,
+                'invoice' =>  $invoice ,
                 'tf' => 0,
             ]);
         }
@@ -41,7 +42,8 @@ class PenjualanController extends Controller
     {
         $penjualan = \App\Models\Penjualan::where('id', $id)->where('user_id', auth()->id())->firstOrFail();
         $barang = Barang::find($penjualan->jenis_penjualan)->first();
-        $subtotal = $barang->harga * $request->jumlah;
+
+        $subtotal = ($barang->harga+ $barang->komisi) * $request->jumlah;
         $cash = $barang->komisi * $request->jumlah;
 
         $penjualan->update([
@@ -49,7 +51,7 @@ class PenjualanController extends Controller
             'harga_satuan' => $barang->harga + $barang->komisi,
             'subtotal' => $subtotal,
             'cash' => $cash,
-            'invoice' => $subtotal,
+            'invoice' => $barang->harga*$request->jumlah,
             'tf' =>  0,
         ]);
 
