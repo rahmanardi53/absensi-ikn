@@ -58,7 +58,7 @@ class LaporanPenjualanController extends Controller
 
         // Rekap total semua
         $rekap = Penjualan::whereBetween('tanggal', [$start, $end])
-            ->selectRaw('nama_barang, SUM(jumlah) as total, SUM(subtotal) as pemasukan')
+            ->selectRaw('nama_barang, SUM(jumlah) as total, SUM(invoice) as pemasukan')
             ->groupBy('nama_barang')
             ->orderBy('id', 'asc')
             ->get();
